@@ -17,4 +17,16 @@
     width:40vw;
     background-color: #2D364C ;
     height: 100vh;
+    padding:2%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title-text{
+    color:#fff;
+    font:Gotham Titles;
+    margin:20px;
 }

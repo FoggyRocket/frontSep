@@ -1,15 +1,19 @@
 import React from 'react';
 import {Switch,Route} from 'react-router-dom';
 //Van mis vistas que see mostraran
-import {Home} from './app/views'
+import {Home,Auth} from './app/views'
 //tonto 
 const Routes = () =>  (
     <Switch>
+        {/* EEl lado off */}
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={()=><h1>Estee es el login</h1>} />
-        <Route exact path="/signup" component={()=><h1>Estee es el signup</h1>} />
+        <Route exact path="/login" component={Auth} />
+        <Route exact path="/signup" component={Auth} />
         <Route exact path="/campus" component={()=><h1>Estee es el campus</h1>} />
-
+        {/* registro ssubir proyecto */}
+        {/* Admin 
+            estudiantes, crear campus, crear cursos,
+        */}
     </Switch>
 )
 
