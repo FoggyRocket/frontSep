@@ -29,26 +29,18 @@ export default class Auth  extends Component{
         const {match,history} = this.props
         const {user} = this.state
         e.preventDefault()
-
-        if(match.path === "/signup"){
-            signupEndpoint(user)
+                        //
+        const perroPromise = () => match.path === "/signup" ? signupEndpoint(user) : loginEndpoint(user);
+        perroPromise()
             .then(res=>{
-                console.log("la respuesta",res)
+              
+                localStorage.setItem( "user",JSON.stringify(res.data.result) ) 
                 history.push('/main')
             })
             .catch(error =>{
                 console.log("error",error)
             })
-        }else{
-            loginEndpoint(user)
-            .then(res=>{
-                console.log("la respuesta",res)
-                history.push('/main')
-            })
-            .catch(error =>{
-                console.log("error",error.response)
-            })
-        }
+        
         
     }
     render(){

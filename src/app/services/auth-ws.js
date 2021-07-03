@@ -10,4 +10,4 @@ export const signupEndpoint = (data) => {
     return _api.post('/auth/signup',data)
 }
 
-export const logoutEndpoint = () => _api.post('/logout')
+export const logoutEndpoint = () => _api.post('/auth/logout')

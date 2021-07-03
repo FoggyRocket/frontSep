@@ -2793,6 +2793,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap-icons-react@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons-react/-/bootstrap-icons-react-1.0.0.tgz#bd4d9e735e8c9c3133a6ce8515c9bd64a897e8c4"
+  integrity sha512-1+f0byDe2V1/AYFb2aAf3ea7Djb01fQV5kI57Jjl1QvLvsXdyNdtj7zgYtqEg1XA7LgWWgdHi1v6f9ka0Cm5nw==
+
 bootstrap@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.2.tgz#aff23d5e0e03c31255ad437530ee6556e78e728e"

@@ -12,7 +12,7 @@ const Routes = () =>  (
         <Route exact path="/signup" component={Auth} />
         <Route exact path="/campus" component={()=><h1>Estee es el campus</h1>} />
 
-        <Route exact path="/main" component={Main} />
+        <Route  path="/main" component={Main} />
         {/* registro ssubir proyecto */}
         {/* Admin 
             estudiantes, crear campus, crear cursos,

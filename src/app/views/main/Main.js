@@ -2,53 +2,51 @@ import React, {Component} from 'react';
 import './styles.css'
 import {SideBar,Modal} from '../../components'
 import SubRoutes from '../../../SubRoutes';
-class Main extends Component{
+import { logoutEndpoint} from  '../../services/auth-ws'
+ class Main extends Component{
 
     state={
-        menus:[
-            {
-                name:'Princpal',
-                onPress : ()=> this.onClickMenu()
-            },
-            
-            {
-                name:'Cerrar sesion',
-                onPress : ()=> this.onClickMenu()
-            }
-         ]
+        //JSON.parse(//para regresarllo a obj)
+        // valor || valor1 si no se cumple uno muestrame el otro valor
+        user: JSON.parse(localStorage.getItem("user")) || {},
+        
     }
 
     componentDidMount(){
-        let {menus} = this.state
-            menus=[
-                ...menus, {
-                name:'Lista de usuarios',
-                onPress : ()=> this.onClickMenu()
-            },
-            {
-                name:'Crear curso',
-                onPress : ()=> this.onClickMenu()
-            },
-            {
-                name:'Crer Campus',
-                onPress : ()=> this.onClickMenu()
-            },
-        ]
-         this.setState({ menus})
+        const {user} = this.state
+        const {history} = this.props
+        //Object.keys({}) noss regresa un [key,key,key]
+        if(!Object.keys(user).length || user === undefined){
+            history.push('/login')
+        }
     }
 
 
     onClickMenu = () => {
 
     }
+
+    onLogout=()=>{
+        const {history} = this.props
+        logoutEndpoint()
+        .then(res=>{
+            localStorage.removeItem('user')
+            history.push('/')
+        })
+        .catch(error=>{
+            console.log("console error",error)
+        })
+    }
     render(){
-       const {menus} = this.state
+       const {menus,user} = this.state
+       const {onLogout} = this
         return(
             <div className="row-app">
 
 
                 <SideBar
-                    menus={menus}
+                    user={user}
+                    onLogout={onLogout}
                 />
                 <SubRoutes/>
             </div>
