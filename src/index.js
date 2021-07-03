@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 //impotamos las rutas y boostrap
 import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+// import 's/js/dist/'
 ReactDOM.render(
   <BrowserRouter>
     <App />

@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch,Route} from 'react-router-dom';
 //Van mis vistas que see mostraran
 import {Home,Auth} from './app/views'
+import Main from './app/views/main/Main'
 //tonto 
 const Routes = () =>  (
     <Switch>
@@ -10,6 +11,8 @@ const Routes = () =>  (
         <Route exact path="/login" component={Auth} />
         <Route exact path="/signup" component={Auth} />
         <Route exact path="/campus" component={()=><h1>Estee es el campus</h1>} />
+
+        <Route exact path="/main" component={Main} />
         {/* registro ssubir proyecto */}
         {/* Admin 
             estudiantes, crear campus, crear cursos,

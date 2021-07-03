@@ -1,0 +1,4 @@
+.row-app{
+    display: flex;
+    flex-direction: row;
+  }
