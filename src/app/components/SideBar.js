@@ -1,39 +1,67 @@
 import {Link} from 'react-router-dom';
 import { Star,Arrow90degDown,Bootstrap,House,Speaker,Table } from 'bootstrap-icons-react';
-const SideBar = ({user,onLogout}) => (
+import ListItem from './ListItem';
+import { UncontrolledCollapse, Button, Collapse, Card } from 'reactstrap';
+
+const SideBar = ({user,onLogout,isOpenAdmin,onPress}) => (
 
     <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{width: 280,height:'100vh'}}>
     <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <Bootstrap/>
       <span className="fs-4">Iron Projects</span>
     </a>
     <hr/>
     <ul className="nav nav-pills flex-column mb-auto">
+      <ListItem
+        text='Dasboard'
+        id='dasboard'
+        Icon ={Bootstrap}
+        onPress={onPress}
+      />
+      {user.role  === 'USER' && 
+      <>
+      <ListItem
+        text='Mis proyectos'
+        id='my_projects'
+        onPress={onPress}
+        Icon ={Bootstrap}
+      />
       
-      <li>
-        <a href="#" className="nav-link text-white">
-            <Bootstrap className='bi me-2'/>
-            Dashboard
-        </a>
-      </li>
-      <li>
-        <a href="#" className="nav-link text-white">
-            <Bootstrap className='bi me-2'/>
-            Mis proyectos
-        </a>
-      </li>
-      <li>
-        <a href="#" className="nav-link text-white">
-            <Bootstrap className='bi me-2'/>
-          Mi curso
-        </a>
-      </li>
-      {user.role === 'ADMIN' && <li>
-        <a href="#" className="nav-link text-white">
-          <Bootstrap className='bi me-2'/>
-          Crear curso
-        </a>
-      </li>}
+      <ListItem
+        text='Mi curso'
+        id='my_course'
+        Icon ={Bootstrap}
+        onPress={onPress}
+      />
+      </>}
+      <ListItem
+        text='Admin'
+        id='admin'
+        Icon ={Bootstrap}
+        onPress={onPress}
+      />
+      <Collapse isOpen={isOpenAdmin}>
+        <ListItem
+          text='Crear curso'
+          id='create_course'
+          Icon ={Bootstrap}
+          onPress={onPress}
+        />
+        <ListItem
+          text='Crear campus'
+          id='create_campus'
+          onPress={onPress}
+          Icon ={Bootstrap}
+        />
+        <ListItem
+          text='Estudiates'
+          id='students'
+          Icon ={Bootstrap}
+          onPress={onPress}
+        />
+      </Collapse>
+     
+
+      
 
       <li onClick={()=>onLogout()}>
         <span className="nav-link text-white">

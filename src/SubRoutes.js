@@ -9,7 +9,7 @@ const SubRoutes = () =>  (
 
         {/* para el admin */}
         <Route  path="/main/list" component={()=><h1>Estas seran listas</h1>} />
-        <Route  path="/main/create-course" component={()=><h1>Estee es el campus</h1>} />
+        <Route  path="/main/create-course" component={Admin} />
         <Route  path="/main/create-campus" component={Admin} />
 
         {/*USEER  */}

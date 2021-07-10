@@ -9,7 +9,7 @@ import { logoutEndpoint} from  '../../services/auth-ws'
         //JSON.parse(//para regresarllo a obj)
         // valor || valor1 si no se cumple uno muestrame el otro valor
         user: JSON.parse(localStorage.getItem("user")) || {},
-        
+        isOpenAdmin:false
     }
 
     componentDidMount(){
@@ -22,8 +22,31 @@ import { logoutEndpoint} from  '../../services/auth-ws'
     }
 
 
-    onClickMenu = () => {
+    onClickMenu = (key) => {
+        let {isOpenAdmin} = this.state
+        const {history} =  this.props
+        switch (key) {
+            case 'admin':
+                this.setState({isOpenAdmin:!isOpenAdmin})
+                break;
+            case 'dasboard':
+                history.push('/')
+                break
+            case 'create_course':
+                history.push('/main/create-course')
+                break
+            case 'create_campus':
+                history.push('/main/create-campus')
+                break
+            case 'students':
+                history.push('/main/students')
+                break
+        
+            default:
+                break;
+        }
 
+        console.log("perro",key)
     }
 
     onLogout=()=>{
@@ -38,15 +61,17 @@ import { logoutEndpoint} from  '../../services/auth-ws'
         })
     }
     render(){
-       const {menus,user} = this.state
-       const {onLogout} = this
+       const {menus,user,isOpenAdmin} = this.state
+       const {onLogout,onClickMenu} = this
         return(
             <div className="row-app">
 
 
                 <SideBar
+                    isOpenAdmin={isOpenAdmin}
                     user={user}
                     onLogout={onLogout}
+                    onPress={onClickMenu}
                 />
                 <SubRoutes/>
             </div>
